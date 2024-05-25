@@ -3,9 +3,11 @@
 import express from 'express';
 import mysql from 'mysql';
 
-
 const app = express();
 const port = 3000;
+const __dirname = 'C:\\Users\\Annepanne22\\Desktop\\Fe23-BackendDb_NodeJS_REST-Angelica-Lundmark';
+app.use(express.static(__dirname + '/public'));
+
 //get -> /student/123
 app.get('/students', (req, res) => {
     var mysqlConnector = mysql.createConnection({
@@ -119,6 +121,31 @@ app.get('/studentsLname/:lname', (req, res) => {
         })
     });
 })
+app.get('/studentsTown/:from', (req, res) => {
+    const {id} = req.params;
+    var mysqlConnector = mysql.createConnection({
+        host     : 'localhost',
+        user     : 'root',
+        password : '',
+        database : 'gritacademy'
+    });
+    mysqlConnector.connect((e) => {
+        if(e) {
+            return res.json({message: "error, can't connect to database"})
+        }
+
+        const query = `SELECT * from students where from=${from}`;
+        mysqlConnector.query(query, (err, result) => {
+            if(err){
+                return res.json({message: "error at query"})
+            }
+            res.json(result); 
+        })
+    });
+})
+
+
+
 app.get('/studentsCourses/:id', (req, res) => {
     const {id} = req.params;
     var mysqlConnector = mysql.createConnection({
@@ -142,6 +169,10 @@ app.get('/studentsCourses/:id', (req, res) => {
     });
 })
 
+app.get('/', (req, res) => {
+ //res.sendFile('C:\\Users\\Annepanne22\\Desktop\\Fe23-BackendDb_NodeJS_REST-Angelica-Lundmark\\frontend\\index.html')
+ res.sendFile(__dirname+'/public/index.html')
+})
 
 app.listen(port, () => {
 console.log(`Example app listening on port ${port}`)

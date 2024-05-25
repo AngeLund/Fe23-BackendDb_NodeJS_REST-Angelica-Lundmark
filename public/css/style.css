@@ -1,0 +1,64 @@
+body {
+    max-width: 1600px;
+    margin: auto;
+}
+
+nav {
+    background-color: #084560;
+    height: 65px;
+}
+
+nav button {
+    margin-top: 10px;
+    width: 50px;
+    height: 44px;
+    margin-left: 10px; 
+}
+
+#gsearch {
+    margin-top: 10px;
+    width: 502px;
+    height: 44px;
+}
+
+.link-div button:hover {
+    background-color: #1FA5DE;
+    color: white;
+    border: none;
+}
+
+a {
+    color: green;
+}
+
+a:link {
+    text-decoration: none;
+  }
+
+.link-div {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.link-div button  {
+    border-radius: 45px;
+    border: rgb(0, 0, 0) 1px solid;
+    background-color: white;
+    padding: 10px;
+}
+
+.student-row {
+    background-color: #084560;
+    display:flex;
+    gap: 1rem;
+    color: white;
+}
+
+.courses-row {
+    background-color: #084560;
+    display:flex;
+    gap: 1rem;
+    color: white;
+}
+
+/* kom ihåg allt ska vara responsivt */
