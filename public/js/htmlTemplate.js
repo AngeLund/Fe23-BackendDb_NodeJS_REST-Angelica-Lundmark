@@ -44,3 +44,22 @@ export const studentTableHeader = () => {
         <th>From</th>
     `
 }
+
+
+export const studentCourseTableHeader = () => {
+    return `
+
+        <th>Name</th>
+        <th>Last name</th>
+        <th>Course</th>
+    `
+}
+
+export const studensCourseTableTemplate = (students_courses) => {
+    return `
+
+            <td>${students_courses.fName}</td>
+            <td>${students_courses.lName}</td>
+            <td>${students_courses.name}</td>
+    `
+}

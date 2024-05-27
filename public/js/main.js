@@ -1,16 +1,12 @@
-import {generateStudentList} from './generator.js'
-import { generateCourseList } from './generator.js';
-
+import {generateStudentList, generateCourseList, generateStudentWithCoursesList} from './generator.js'
+import {  } from './generator.js';
 const buttonAllStudents = document.getElementById('buttonStudent');
 buttonAllStudents.addEventListener('click', () => {
     fetchStudents()
 })
-const buttonStudenById = document.getElementById('test');
-buttonStudenById.addEventListener('click', () => {
-    fetchStudentById(2)
-})
 
-const buttonStudenBylName = document.getElementById('tes');
+
+/*const buttonStudenBylName = document.getElementById('tes');
 buttonStudenBylName.addEventListener('click', () => {
     fetchStudents();
     fetchCourses()
@@ -19,12 +15,17 @@ buttonStudenBylName.addEventListener('click', () => {
 const test = document.getElementById('rw');
 test.addEventListener('click', () => {
     fetchStudentBylName('West')
-})
+})*/
 
 
 const buttonAllCourses = document.getElementById('buttonCourses');
 buttonAllCourses.addEventListener('click', () => {
     fetchCourses()
+})
+
+const buttonCourseStudent = document.getElementById ('courseStudent');
+buttonCourseStudent.addEventListener('click', () => {
+    fetchStudentsWithCourses()
 })
 
 async function fetchStudents() {
@@ -111,6 +112,54 @@ async function fetchCourses() {
 
 async function fetchAll() {
     const response = await fetch('http://localhost:3000',
+        {
+            method: 'get',
+            mode: 'cors',
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }
+    );
+    const res = response.json();
+    res.then(r => {
+        generateCourseList(r)
+    })
+}
+
+async function fetchStudentsWithCourses() {
+    const response = await fetch('http://localhost:3000/studentsAndCourses',
+        {
+            method: 'get',
+            mode: 'cors',
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }
+    );
+    const res = response.json();
+    res.then(r => {
+        generateStudentWithCoursesList(r)
+    })
+}
+
+async function fetchStudentsWithCoursesbyID(id) {
+    const response = await fetch('http://localhost:3000/students_courses'+id,
+        {
+            method: 'get',
+            mode: 'cors',
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }
+    );
+    const res = response.json();
+    res.then(r => {
+        generateCourseList(r)
+    })
+}
+
+async function fetchStudentsWithCoursesbyName(name) {
+    const response = await fetch('http://localhost:3000/students_courses/'+name,
         {
             method: 'get',
             mode: 'cors',

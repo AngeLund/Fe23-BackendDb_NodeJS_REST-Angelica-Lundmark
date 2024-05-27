@@ -36,7 +36,7 @@ a:link {
   }
 
 .link-div {
-    margin-top: 10px;
+    margin-top: 28px;
     margin-bottom: 30px;
 }
 
@@ -47,12 +47,6 @@ a:link {
     padding: 10px;
 }
 
-.student-row {
-    background-color: #084560;
-    display:flex;
-    gap: 1rem;
-    color: white;
-}
 
 .courses-row {
     background-color: #084560;
@@ -62,3 +56,48 @@ a:link {
 }
 
 /* kom ihåg allt ska vara responsivt */
+
+ td th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+tr:nth-child(even){background-color: #f2f2f2;}
+  
+tr:hover {background-color: #ddd;}
+  
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #a7aeaf;
+    color: rgb(0, 0, 0);
+  }
+
+  table {
+    width: 100%;
+    font-size: 1em;
+  }
+
+  td {
+    padding-top: 9px;
+    padding-bottom: 9px;
+  }
+
+  .student-row {
+    display: flex;
+    justify-content: space-between;
+    background-color: #084560;
+    display:flex;
+    gap: 1rem;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 500;
+    /*background: linear-gradient(0.25turn, #084560, #1FA5DE, #084560);*/
+  }
+
+  #radio_header {
+    font-size: 1.2em;
+    font-weight: 500;
+  }

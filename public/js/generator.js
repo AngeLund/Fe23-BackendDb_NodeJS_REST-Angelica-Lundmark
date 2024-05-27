@@ -1,4 +1,4 @@
-import {courseTableTemplate, studentTemplate,
+import {courseTableTemplate, studentTemplate, studensCourseTableTemplate, studentCourseTableHeader,
     studentTableHeader, courseTableHeader, studentTableTemplate} from './htmlTemplate.js';
 
 /*export const generateStudentList = (students) => {
@@ -58,6 +58,23 @@ export const generateStudentList = (students) => {
 
     });
     tbl.appendChild(tbBody)
-    document.querySelector('.generate-list-students').innerHTML='';
-    document.querySelector('.generate-list-students').appendChild(tbl);
+    document.querySelector('.generate-list-student').innerHTML= '';
+    document.querySelector('.generate-list-student').appendChild(tbl);
+}
+
+export const generateStudentWithCoursesList = (students_courses_list) => {
+    const tbl = document.createElement("table");
+    const tbBody = document.createElement('tbody');
+    const trHeaderElement = document.createElement('tr');
+    trHeaderElement.innerHTML = studentCourseTableHeader();
+    tbBody.appendChild(trHeaderElement)
+    students_courses_list.forEach(students_courses => {
+        const trElement = document.createElement('tr')
+        trElement.innerHTML = studensCourseTableTemplate(students_courses);
+        tbBody.appendChild(trElement)
+
+    });
+    tbl.appendChild(tbBody)
+    document.querySelector('.generate-list-studentCourses').innerHTML= '';
+    document.querySelector('.generate-list-studentCourses').appendChild(tbl);
 }
