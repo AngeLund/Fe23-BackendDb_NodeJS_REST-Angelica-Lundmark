@@ -1,29 +1,5 @@
-import {courseTableTemplate, studentTemplate, studensCourseTableTemplate, studentCourseTableHeader,
+import {courseTableTemplate,  studensCourseTableTemplate, studentCourseTableHeader,
     studentTableHeader, courseTableHeader, studentTableTemplate} from './htmlTemplate.js';
-
-/*export const generateStudentList = (students) => {
-    const ulElement = document.createElement('ul');
-    students.forEach(student => {
-        const liElement = document.createElement('li');
-        liElement.innerHTML = studentTemplate(student)
-        ulElement.appendChild(liElement);
-    });
-
-    document.querySelector('.generate-list-students').innerHTML='';
-    document.querySelector('.generate-list-students').appendChild(ulElement);
-}*/
-
-/* export const generateCourseList = (course) => {
-    const ulElement = document.createElement('ul');
-    course.forEach(course => {
-        const liElement = document.createElement('li');
-        liElement.innerHTML = courseTemplate(course)
-        ulElement.appendChild(liElement);
-    });
-
-    document.querySelector('.generate-list-courses').innerHTML = '';
-    document.querySelector('.generate-list-courses').appendChild(ulElement);
-} */
 
 
 export const generateCourseList = (course) => {
@@ -38,7 +14,6 @@ export const generateCourseList = (course) => {
         tbBody.appendChild(trElement)
     })
     tbl.appendChild(tbBody)
-    document.querySelector('.generate-list-courses').innerHTML = '';
     document.querySelector('.generate-list-courses').appendChild(tbl);
 
 }
@@ -57,8 +32,7 @@ export const generateStudentList = (students) => {
         tbBody.appendChild(trElement)
 
     });
-    tbl.appendChild(tbBody)
-    document.querySelector('.generate-list-student').innerHTML= '';
+    tbl.appendChild(tbBody);
     document.querySelector('.generate-list-student').appendChild(tbl);
 }
 
@@ -75,6 +49,5 @@ export const generateStudentWithCoursesList = (students_courses_list) => {
 
     });
     tbl.appendChild(tbBody)
-    document.querySelector('.generate-list-studentCourses').innerHTML= '';
     document.querySelector('.generate-list-studentCourses').appendChild(tbl);
 }
